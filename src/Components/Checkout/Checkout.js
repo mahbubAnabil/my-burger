@@ -7,6 +7,7 @@ import Spinner from '../../Components/Spinner/Spinner';
 import { resetIngredients } from '../../redux/actionCreators';
 
 
+
 const mapStateToprops = state => {
     return {
         ingredients: state.ingredients,
