@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Formik } from 'formik';
 
+import { Alert } from 'reactstrap';
 import { connect } from 'react-redux';
 import { auth } from '../../redux/authActionCreators';
 
@@ -30,6 +31,10 @@ class Auth extends Component {
     }
 
     render() {
+        let err = null;
+        if (this.props.authFailedMsg != null) {
+            err = <Alert color="danger">{this.props.authFailedMsg}</Alert>
+        }
         let form = null;
         if (this.props.authLoading) {
             form = <Spinner />
@@ -129,6 +134,7 @@ class Auth extends Component {
 
         return (
             <div>
+                {err}
                 {form}
             </div>
         )
